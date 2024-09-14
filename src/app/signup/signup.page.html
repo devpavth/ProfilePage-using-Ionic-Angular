@@ -1,0 +1,79 @@
+
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <!-- Left Side: Heading Section -->
+    <div class="left-section">
+      <h1>Create an account</h1>
+      <p>Let's connect with your friends today!</p>
+    </div>
+
+    <div class="right-section">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="mobile-welcome">
+          <h1>Create an account</h1>
+          <p>Let's connect with your friends today!</p>
+        </div>
+        <div class="login-form ion-padding">
+          <div class="form-input">
+            <ion-item>
+              <ion-icon name="person-outline"></ion-icon>
+              <!-- <ion-label position="floating">Username</ion-label> -->
+              <ion-input formControlName="username">Username</ion-input>
+            </ion-item>
+            <div *ngIf="signupForm.controls['username'].invalid && signupForm.controls['username'].touched">
+              <p>Username is required.</p>
+            </div>
+          </div>
+          <div class="form-input">
+            <ion-item>
+              <ion-icon name="mail-outline"></ion-icon>
+              <!-- <ion-label position="floating">Email</ion-label> -->
+              <ion-input formControlName="email" type="email">Email</ion-input>
+            </ion-item>
+            <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched">
+              <p>Email is required and should be valid.</p>
+            </div>
+          </div>
+          <!-- <div class="form-input">
+            <ion-item>
+              <ion-icon name="call-outline"></ion-icon>
+              <ion-label position="floating">Phone number</ion-label>
+              <ion-input type="text" formControlName="phone">Phone number</ion-input>
+            </ion-item>
+            <div *ngIf="signupForm.controls['phone'].invalid && signupForm.controls['phone'].touched">
+              <p>Phone number is required and should contain only numbers.</p>
+            </div>
+          </div> -->
+          <div class="form-input">
+            <ion-item>
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <!-- <ion-label position="floating">Password</ion-label> -->
+              <ion-input formControlName="password" type="password">Password</ion-input> 
+            </ion-item>
+            <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched">
+              <p>Password is required and should be at least 6 characters.</p>
+            </div>
+          </div>
+          <div class="form-input">
+            <ion-item>
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <!-- <ion-label position="floating"></ion-label> -->
+              <ion-input formControlName="confirmPassword" type="password">Confirm Password</ion-input> 
+            </ion-item>
+            <div *ngIf="signupForm.hasError('mismatch') && signupForm.controls['confirmPassword'].touched">
+              <p>Passwords do not match.</p>
+            </div>
+          </div>
+        </div>
+        <div class="action-buttons ion-padding">
+          <ion-button size="large" class="login-button" type="submit">Sign Up</ion-button>
+          <!-- <p class="forgot-pwd">Forgot Password?</p> -->
+          <p class="signup-button">Already have an account? 
+            <a class="signup-link" routerLink="/login">Login</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</ion-content>
